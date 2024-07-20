@@ -46,12 +46,12 @@ app.get("/users", async(req,res) => {
 // User registration
 app.post('/register', async (req, res, next) => {
     try {
-      const { username, email, password } = req.body;
+      const { email, password } = req.body;
 
-      const existingUser = await User.findOne({ username });
-      if (existingUser) {
-        return res.status(400).json({ error: 'Username already exists' });
-      }
+      // const existingUser = await User.findOne({ username });
+      // if (existingUser) {
+      //   return res.status(400).json({ error: 'Username already exists' });
+      // }
   
       const existingEmail = await User.findOne({ email });
       if (existingEmail) {
@@ -61,7 +61,7 @@ app.post('/register', async (req, res, next) => {
       const saltString = await bcrypt.genSalt(10)
       const hashedPassword = await bcrypt.hash(password, saltString);
       
-      const user = new User({ username, email, password: hashedPassword });
+      const user = new User({email, password: hashedPassword });
       await user.save();
       
       const token = jwt.sign({ payload: email }, process.env.JWT_SECRET);
@@ -99,7 +99,7 @@ app.get('/user-details', auth, async (req, res) => {
     const query = await User.find({ email })
     console.log(query, "final")
     res.send(query)
-    
+
   } catch(e) {
     console.error(e.message)
   }

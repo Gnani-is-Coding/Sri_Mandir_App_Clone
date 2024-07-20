@@ -17,7 +17,7 @@ const PujaDetailsPopup = ({ onClose, onNext }) => {
     try {
         const token = Cookies.get("jwt_token")
 
-      const response = await fetch('http://localhost:3000/user-details', {
+      const response = await fetch('https://sri-mandir-app-clone.onrender.com/user-details', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,

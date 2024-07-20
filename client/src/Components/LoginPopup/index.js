@@ -48,7 +48,7 @@ const LoginPopup = ({ onClose, onLoginSuccess }) => {
     console.log({email, password})
 
     try {
-      const url = "http://localhost:3000/register";
+      const url = "https://sri-mandir-app-clone.onrender.com/register";
 
       const response = await fetch(url, {
         method: 'POST',
@@ -84,6 +84,7 @@ const LoginPopup = ({ onClose, onLoginSuccess }) => {
         <h2>Login</h2>
         <p>email: gnani@gmail.com</p>
         <p>password: 1234</p>
+        <p>Initial request to server will take 1 min to complete</p>
         
         <form onSubmit={handleSubmit}>
           <div className="form-group">
