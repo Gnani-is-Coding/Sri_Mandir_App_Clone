@@ -31,24 +31,50 @@ const auth = (req, res, next) => {
   }
 };
 
-// User registration
-app.post('/register', async (req, res) => {
+app.get("/users", async(req,res) => {
   try {
-    const { username, email, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const user = new User({ username, email, password: hashedPassword });
-    await user.save();
-    res.status(201).json({ message: 'User created successfully' });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+    const users = await User.find({})
+    if (!users) return res.json("No users Present in DB")
+    res.json(users)
+  } catch(e) {
+    console.error(e.message)
   }
-});
+})
+// User registration
+app.post('/register', async (req, res, next) => {
+    try {
+      const { username, email, password } = req.body;
+
+      const existingUser = await User.findOne({ username });
+      if (existingUser) {
+        return res.status(400).json({ error: 'Username already exists' });
+      }
+  
+      const existingEmail = await User.findOne({ email });
+      if (existingEmail) {
+        return res.status(400).json({ error: 'Email already exists' });
+      }
+      
+      const saltString = await bcrypt.genSalt(10)
+      const hashedPassword = await bcrypt.hash(password, saltString);
+      
+      const user = new User({ username, email, password: hashedPassword });
+      await user.save();
+      
+      res.status(201).json({ message: 'User created successfully' });
+    } catch (error) {
+      next(error);
+    }
+  });
+  
 
 // User login
 app.post('/login', async (req, res) => {
   try {
-    const { username, password } = req.body;
-    const user = await User.findOne({ username });
+    const { email, password } = req.body;
+    console.log(email, password)
+
+    const user = await User.findOne({ email });
     if (!user) return res.status(400).json({ error: 'User not found' });
 
     const validPassword = await bcrypt.compare(password, user.password);
