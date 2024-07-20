@@ -58,19 +58,19 @@ function Navbar() {
                             <p className='drop-down-para'>Hello, Sri Mandir Bhakt</p>
                             <p className='drop-down-para'>Welcome to Sri Mandir Puja Seva</p>
                             <hr/>
-                            <Link to="/my-puja-booking" className="dropdown-item">
+                            <Link to="/my-puja-booking" className="dropdown-item" onClick={() => setOpenProfileDropdown(false)}>
                                 <Calendar size={16} />
                                 <span style={{"fontWeight": "500"}}>My Puja Booking</span>
                             </Link>
-                            <Link to="/profile" className="dropdown-item">
+                            <Link to="/profile" className="dropdown-item" onClick={() => setOpenProfileDropdown(false)}>
                                 <User size={16} />
                                 <span style={{"fontWeight": "500"}}>My Profile</span>
                             </Link>
-                            <Link to="/book-puja" className="dropdown-item">
+                            <Link to="/book-puja" className="dropdown-item" onClick={() => setOpenProfileDropdown(false)}>
                                 <BookOpen size={16} />
                                 <span style={{"fontWeight": "500"}}>Book a Puja</span>
                             </Link>
-                            <Link to="/settings" className="dropdown-item">
+                            <Link to="/settings" className="dropdown-item" onClick={() => setOpenProfileDropdown(false)}>
                                 <Settings size={16} />
                                 <span style={{"fontWeight": "500"}}>Settings</span>
                             </Link>

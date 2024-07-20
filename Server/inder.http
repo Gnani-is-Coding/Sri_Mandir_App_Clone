@@ -3,11 +3,15 @@ POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "email": "gnani@gmail.com",
-    "username": "Gnani",
+    "email": "d@gmail.com",
+    "username": "Gnanendra Gariminti",
     "password": "1234"
 }
 
+###
+GET http://localhost:3000/user-details
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiZ25hbmlAZ21haWwuY29tIiwiaWF0IjoxNzIxNDYwNzcxfQ.Zb-NUitCdAonHJJY81dP02NeVOnRBmMBbK9G5HPUzXE
 ###
 POST http://localhost:3000/login
 Content-Type: application/json

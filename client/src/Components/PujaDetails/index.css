@@ -1,0 +1,152 @@
+.puja-detail-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.puja-detail-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}
+
+.puja-detail-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.puja-detail-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.puja-detail-tagline, .puja-detail-info, .puja-detail-description {
+  margin-bottom: 10px;
+}
+
+.puja-select-package-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.puja-select-package-btn:hover {
+  background-color: #45a049;
+}
+
+/* Package section styles */
+.package-section {
+  width: 100%;
+  margin-top: 40px;
+}
+
+.package-section-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.package-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  
+}
+
+.package-card {
+  width: 300px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  margin: 16px;
+  background: linear-gradient(to bottom,#ffe8e1,#ffffff);
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.package-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.package-price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #4caf50;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.package-tagline {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.package-description {
+  font-size: 0.9rem;
+  color: #555;
+  white-space: pre-wrap;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.package-participate-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 32px);
+  padding: 10px;
+  margin: 16px auto 0;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.package-participate-btn:hover {
+  background-color: #45a049;
+}
+
+.package-btn-icon {
+  margin-left: 8px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .puja-detail-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .puja-detail-image {
+    max-width: 100%;
+  }
+
+  .puja-detail-content {
+    padding: 10px;
+  }
+
+  .puja-detail-title {
+    font-size: 1.5rem;
+  }
+
+  .package-card {
+    width: 100%;
+  }
+}

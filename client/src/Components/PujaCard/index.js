@@ -1,8 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { MapPin, Calendar, ArrowRight } from 'lucide-react';
 import './index.css';
 
 const PujaCard = ({ image, title, tagline, address, date }) => {
+  const navigate = useNavigate();
+
+  const handleParticipateClick = () => {
+    navigate(`/puja/${title}`);
+  };
+
   return (
     <div className="puja-card">
       <img src={image} alt={title} className="puja-image" />
@@ -16,7 +23,7 @@ const PujaCard = ({ image, title, tagline, address, date }) => {
         <Calendar size={16} className="puja-icon" />
         <span>{date}</span>
       </p>
-      <button className="puja-participate-btn">
+      <button className="puja-participate-btn" onClick={handleParticipateClick}>
         Participate
         <ArrowRight size={16} className="puja-btn-icon" />
       </button>
